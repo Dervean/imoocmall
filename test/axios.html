@@ -52,60 +52,33 @@
                 })
             },
               
-            // post: function(){
-            // // let config = {
-            // //     headers : {
-            // //         'Content-Type':'text/plain;charset=utf-8'
-            // //         // 'Content-Type':'application/x-www-from-urlencoded'
-            // //     },
-            // // };
-            // axios.post("../package.json", JSON.stringify({
-            //         title: 'Fred',
-            //         lastName: 'Flintstone',
-            //     }))
-            //     .then(res => {
-            //         console.log(res);
-            //     })
-            // .catch(err => {
-            //     console.log(err);
-            // })
-
-            // // var params = new URLSearchParams();
-            // // params.append('title', 'Fred');
-            // // params.append('lastName', 'Flintstone');  
-            // // axios({
-            // //     method: 'post',
-            // //     url: "../package.json",
-            // //     params
-            // //     // data: {
-            // //     //     title: 'Fred',
-            // //     //     lastName: 'Flintstone',
-            // //     // },
-            // //     // headers: {
-            // //     //     // 'Content-Type': 'text/plain;charset=utf-8',
-            // //     //     'Content-Type': 'application/json',
-            // //     // },
-            // // }).then(res => {
-            // //     this.msg = res.data;
-            // // }).catch(error => {
-            // //     console.log(error.response)
-            // // });
-            // },
+            post: function(){
+                axios.post("../package.json", JSON.stringify({
+                        title: 'Fred',
+                        lastName: 'Flintstone',
+                    }))
+                    .then(res => {
+                        console.log(res);
+                    })
+                .catch(err => {
+                    console.log(err);
+                })
+            },
 
             http: function(){
 
             },
 
-            all: function(){
+            all: function () {
                 var getIndex = function () {
-            return axios.get("../index.html");
-          }
-          var getPack = function () {
-            return axios.get("../package.json")
-          }
-          axios.all([getIndex(),getPack()]).then(axios.spread(function (index,pack) {
-            console.log("all request")
-          }));
+                    return axios.get("../index.html");
+                }
+                var getPack = function () {
+                    return axios.get("../package.json")
+                }
+                axios.all([getIndex(),getPack()]).then(axios.spread(function (index,pack) {
+                    console.log("all request")
+                }));
             }
           }
       })
